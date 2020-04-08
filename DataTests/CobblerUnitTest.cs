@@ -1,11 +1,106 @@
 using System;
 using ExamTwoCodeQuestions.Data;
 using Xunit;
+using System.ComponentModel;
 
 namespace ExamTwoCodeQuestions.DataTests
 {
     public class CobblerUnitTests
     {
+        /// <summary>
+        /// checks if the class implements the INotifyProperty
+        /// </summary>
+        [Fact]
+        public void CobblerImplementsPropertyChanged()
+        {
+            var cobbler = new Cobbler();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(cobbler);
+        }
+
+        /// <summary>
+        /// checks if change in fruit invokes propertychanged for fruit
+        /// </summary>
+        [Fact]
+        public void ChangingFruitPropertyShouldInvokePropertyChangedForFruit()
+        {
+            var cobbler = new Cobbler();
+            Assert.PropertyChanged(cobbler, "Fruit", () => {
+                cobbler.Fruit = FruitFilling.Blueberry;
+            });
+        }
+
+        /// <summary>
+        /// checks if change in fruit invokes propertychanged for fruit
+        /// </summary>
+        [Fact]
+        public void ChangingisCherryPropertyShouldInvokePropertyChangedForFruit()
+        {
+            var cobbler = new Cobbler();
+            Assert.PropertyChanged(cobbler, "Fruit", () => {
+                cobbler.isCherry = true;
+            });
+        }
+
+        /// <summary>
+        /// checks if change in fruit invokes propertychanged for fruit
+        /// </summary>
+        [Fact]
+        public void ChangingisPeachPropertyShouldInvokePropertyChangedForFruit()
+        {
+            var cobbler = new Cobbler();
+            Assert.PropertyChanged(cobbler, "Fruit", () => {
+                cobbler.isPeach = true;
+            });
+        }
+
+        /// <summary>
+        /// checks if change in fruit invokes propertychanged for fruit
+        /// </summary>
+        [Fact]
+        public void ChangingisBlueberryPropertyShouldInvokePropertyChangedForFruit()
+        {
+            var cobbler = new Cobbler();
+            Assert.PropertyChanged(cobbler, "Fruit", () => {
+                cobbler.isBlueberry = true;
+            });
+        }
+
+        /// <summary>
+        /// checks if change in withicecream invokes propertychanged for WithIceCream
+        /// </summary>
+        [Fact]
+        public void ChangingWithIceCreamPropertyShouldInvokePropertyChangedForWithIceCream()
+        {
+            var cobbler = new Cobbler();
+            Assert.PropertyChanged(cobbler, "WithIceCream", () => {
+                cobbler.WithIceCream = false;
+            });
+        }
+
+        /// <summary>
+        /// checks if change in WithIceCrem invokes propertychanged for SpecialInstrctions
+        /// </summary>
+        [Fact]
+        public void ChangingWithIceCreamPropertyShouldInvokePropertyChangedForSpecialInstructions()
+        {
+            var cobbler = new Cobbler();
+            Assert.PropertyChanged(cobbler, "SpecialInstructions", () => {
+                cobbler.WithIceCream = false;
+            });
+        }
+
+        /// <summary>
+        /// checks if change in WithIceCream invokes propertychanged for Price
+        /// </summary>
+        [Fact]
+        public void ChangingWithIceCreamPropertyShouldInvokePropertyChangedForPrice()
+        {
+            var cobbler = new Cobbler();
+            Assert.PropertyChanged(cobbler, "Price", () => {
+                cobbler.WithIceCream = false;
+            });
+        }
+
         [Theory]
         [InlineData(FruitFilling.Cherry)]
         [InlineData(FruitFilling.Blueberry)]
@@ -72,5 +167,7 @@ namespace ExamTwoCodeQuestions.DataTests
             var cobbler = new Cobbler();
             Assert.IsAssignableFrom<IOrderItem>(cobbler);
         }
+
+
     }
 }

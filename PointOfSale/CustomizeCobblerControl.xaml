@@ -7,6 +7,32 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <TextBlock>Customize Cobbler</TextBlock>
+        <StackPanel>
+            <TextBlock FontSize="40">Customize this Cobbler!</TextBlock>
+            
+            <CheckBox  IsChecked="{Binding Path=WithIceCream}">With Ice Cream
+                <CheckBox.LayoutTransform>
+                    <ScaleTransform ScaleX="2" ScaleY="2"/>
+                </CheckBox.LayoutTransform>
+            </CheckBox>
+            <TextBlock FontSize="30">Select a Fruit Filling:</TextBlock>
+            <RadioButton GroupName="Filling" IsChecked="{Binding Path=Peach}">Peach
+                <RadioButton.LayoutTransform>
+                    <ScaleTransform ScaleX="2" ScaleY="2"/>
+                </RadioButton.LayoutTransform>
+            </RadioButton>
+            <RadioButton GroupName="Filling" IsChecked="{Binding Path=Cherry}">Cherry
+                <RadioButton.LayoutTransform>
+                    <ScaleTransform ScaleX="2" ScaleY="2"/>
+                </RadioButton.LayoutTransform>
+            </RadioButton>
+            <RadioButton GroupName="Filling" IsChecked="{Binding Path=Blueberry}">Blueberry
+                <RadioButton.LayoutTransform>
+                    <ScaleTransform ScaleX="2" ScaleY="2"/>
+                </RadioButton.LayoutTransform>
+            </RadioButton>
+
+
+        </StackPanel>
     </Grid>
 </UserControl>
